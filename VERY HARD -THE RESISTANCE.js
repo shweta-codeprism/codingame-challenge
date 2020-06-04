@@ -3,7 +3,7 @@
  * Auto-generated code below aims at helping you parse
  * the standard input according to the problem statement.
  **/
- const MorseCodeAZ = Object.freeze({
+const MorseCodeAZ = Object.freeze({
     A: ".-",
     B: "-...",
     C: "-.-.",
@@ -28,9 +28,9 @@
     V: "...-",
     W: ".--",
     X: "-..-",
-    Y:"-.--",
+    Y: "-.--",
     Z: "--.."
- });
+});
 
 const L = readline();
 const N = parseInt(readline());
@@ -38,11 +38,11 @@ const morseWords = [];
 console.error("Morse Code-String", L);
 
 const convertWordtoMorse = (word) => {
-  var morseWord = "";
-  for (var i = 0; i < word.length; i++) {
-    morseWord += MorseCodeAZ[word[i]];
-  }
-  return morseWord;
+    var morseWord = "";
+    for (var i = 0; i < word.length; i++) {
+        morseWord += MorseCodeAZ[word[i]];
+    }
+    return morseWord;
 }
 
 
@@ -64,7 +64,7 @@ const findCompleteMessage = (startIndex) => {
             // console.error("Matched", startIndex);
             return 1;
         }
-        const remainingL =  L.substring(startIndex);
+        const remainingL = L.substring(startIndex);
         // console.error("RL", remainingL, startIndex);
         for (var i = 0; i < morseWords.length; i++) {
             // console.error("RL-MEM", morseWords[i], i);
@@ -72,11 +72,11 @@ const findCompleteMessage = (startIndex) => {
                 // console.error("RL-MEM-GONE", morseWords[i], i);
                 const newCount = findCompleteMessage(startIndex + morseWords[i].length);
                 // console.error("New Count",newCount);
-                possible_message_count +=  newCount;
+                possible_message_count += newCount;
             }
         }
+        memo[startIndex] = possible_message_count;
     }
-    memo[startIndex] = possible_message_count;
     return memo[startIndex];
 }
 
