@@ -19,7 +19,7 @@ const isGreenSignal = (cTime, aTime) => {
 
 const findTheSpeed = () => {
     console.error("G-SPeed", maxSpeed);
-    for (let i = 0; i <lightCount ; i ++) {
+    for (let i = 0; i < lightCount; i++) {
         const cTime = allDistance[i] * 18 / (maxSpeed * 5);
         if (isGreenSignal(cTime, allDuration[i])) continue;
         else {

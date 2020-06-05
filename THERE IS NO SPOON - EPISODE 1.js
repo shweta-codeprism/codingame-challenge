@@ -11,19 +11,19 @@ for (let i = 0; i < height; i++) {
     allLines.push(line);
 }
 console.error(allLines);
-console.error(width,",", height);
+// console.error(width, ",", height);
 
 // Write an action using console.log()
 // To debug: console.error('Debug messages...');
-let lineIndex = 0 ;
-let x1 = -1, y1 = -1, x2 = -1, y2 = -1, x3 = -1, y3 = -1; 
+let lineIndex = 0;
+let x1 = -1, y1 = -1, x2 = -1, y2 = -1, x3 = -1, y3 = -1;
 
 const resetVals = () => {
     x1 = -1; y1 = -1; x2 = -1; y2 = -1; x3 = -1; y3 = -1;
 }
 
 const findNearestInRow = (rowInput, startIndex) => {
-    for (let i = startIndex; i < width; i ++) {
+    for (let i = startIndex; i < width; i++) {
         if (rowInput[i] === '0') {
             return i;
         }
@@ -32,7 +32,7 @@ const findNearestInRow = (rowInput, startIndex) => {
 }
 
 const findNearestInColumn = (startLineIndex, col) => {
-    for (let i = startLineIndex; i < height; i ++) {
+    for (let i = startLineIndex; i < height; i++) {
         if (allLines[i][col] === '0') {
             return i;
         }
@@ -40,9 +40,9 @@ const findNearestInColumn = (startLineIndex, col) => {
     return -1;
 }
 
-for (let row = 0 ; row < height; row += 1, lineIndex += 1) {
+for (let row = 0; row < height; row += 1, lineIndex += 1) {
     const line = allLines[row];
-    for (let col = 0; col < line.length; col ++) {
+    for (let col = 0; col < line.length; col++) {
         if (line[col] === '0') {
             x1 = col; y1 = row;
             const nearestRight = findNearestInRow(line, col + 1);
